@@ -1,0 +1,194 @@
+body {
+	background-color: #23262b;
+	color: white;
+	font-family: Courier;
+	margin: 15px;
+	text-align: center;
+	user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-webkit-user-select: none;
+	-o-user-select: none;
+}
+
+svg {
+	margin-left: 1px;
+	margin-top: -26px;
+	width: 30px;
+}
+
+keyboard {
+	display: inline-block;
+	padding-top: 12px;
+	width: 100%;
+}
+
+key {
+	display: inline-block;
+	height: 14px;
+	line-height: 1;
+	margin: -6px 0 0 0;
+	overflow: hidden;
+	padding: 5px;
+	width: 14px;
+}
+
+key:hover,
+.selected {
+	background-color: red;
+	border-radius: 3px;
+}
+
+result {
+	display: inline-block;
+	margin: -11px 0 10px 0;
+	max-width: 620px;
+	pointer-events: none;
+}
+
+result key {
+	background-color: #272b32;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 6vw;
+	height: 6vw;
+	margin: 1px 3px;
+	pointer-events: auto;
+	width: 4vw;
+}
+
+@media (min-width: 500px){
+	result key {
+		font-size: 33px;
+		height: 30px;
+		width: 20px;
+	}
+}
+
+@media (max-width: 500px){label{font-size: 3vw;}}
+
+
+/* Hide the browser's default check box */
+.container input {
+	cursor: pointer;
+	opacity: 0;
+	position: absolute;
+}
+
+checkbox {
+	display: inline-block;
+	height: 15px;
+	margin-right: 23px;
+	width: 0;
+}
+
+
+/* Create a custom check box */
+
+.checkmark {
+	background-color: #eee;
+	border-radius: 5px;
+	height: 20px;
+	position: absolute;
+	width: 20px;
+}
+
+
+/* On mouse-over, add a gray background color */
+
+.container:hover input~.checkmark {
+	background-color: #ccc;
+}
+
+
+/* When the check box is checked, add a blue background */
+
+.container input:checked~.checkmark {
+	background-color: #2196F3;
+}
+
+
+/* Create the check mark/indicator (hidden when not checked) */
+
+.checkmark:after {
+	content: "";
+	display: none;
+	position: absolute;
+}
+
+
+/* Show the check mark when checked */
+
+.container input:checked~.checkmark:after {
+	display: block;
+}
+
+
+/* Style the check mark/indicator */
+
+.container .checkmark:after {
+
+	border: solid white;
+	border-width: 0 3px 3px 0;
+	height: 8px;
+	left: 7px;
+	top: 4px;
+	-ms-transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+	width: 4px;
+}
+
+#copy {
+	height: 0;
+	opacity: 0;
+	position: fixed;
+	right: 0;
+	top: 0;
+	width: 0;
+}
+
+copy>button {
+	background-color: #272b32;
+	border: none;
+	border-radius: 5px;
+	color: white;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 28px;
+	height: 49px;
+	margin-bottom: 26px;
+	padding: 2px 10px 6px 10px;
+	pointer-events: auto;
+}
+
+label {
+	cursor: pointer;
+	display: inline-block;
+	margin-bottom: 6px;
+	margin-top: 6px;
+	word-break: break-all;
+}
+
+copy>button {
+	background-color: #2196F3;
+	box-shadow: gray 0 5px;
+	display: inline-block;
+	position: relative;
+	top: 0;
+	-webkit-transition: background-color 0.4s ease-in-out;
+	-moz-transition: background-color 0.4s ease-in-out;
+	-o-transition: background-color 0.4s ease-in-out;
+	transition: background-color 0.4s ease-in-out;
+}
+
+copy>button:active {
+	box-shadow: gray 0 1px;
+	top: 4px;
+}
+
+.copied>button {
+	background-color: #328a3c;
+}
