@@ -176,9 +176,9 @@ const BuildAll = () => {
 		document.querySelector('#copy').select();
 		document.execCommand('copy');
 		setTimeout(()=>{
-			document.querySelector('copy').classList.add('copied');
+			document.querySelector('message').classList.add('active');
 
-			setTimeout(()=>{document.querySelector('copy').classList.remove('copied');}, 400);
+			setTimeout(()=>{document.querySelector('message').classList.remove('active');}, 3000);
 
 		}, 100);
 	};
