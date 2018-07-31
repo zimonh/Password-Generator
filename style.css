@@ -19,7 +19,6 @@ svg {
 
 keyboard {
 	display: inline-block;
-	padding-top: 12px;
 	width: 100%;
 }
 
@@ -41,7 +40,7 @@ key:hover,
 
 result {
 	display: inline-block;
-	margin: -11px 0 10px 0;
+	margin: 18px 0 10px 0;
 	max-width: 620px;
 	pointer-events: none;
 }
@@ -178,10 +177,11 @@ copy>button {
 	display: inline-block;
 	position: relative;
 	top: 0;
-	-webkit-transition: background-color 0.4s ease-in-out;
-	-moz-transition: background-color 0.4s ease-in-out;
-	-o-transition: background-color 0.4s ease-in-out;
-	transition: background-color 0.4s ease-in-out;
+	-webkit-transition: all 0.05s ease-in-out;
+	-moz-transition: all 0.05s ease-in-out;
+	-o-transition: all 0.05s ease-in-out;
+	transition: all 0.05s ease-in-out;
+
 }
 
 copy>button:active {
@@ -189,6 +189,21 @@ copy>button:active {
 	top: 4px;
 }
 
-.copied>button {
-	background-color: #328a3c;
+
+message{
+-webkit-transition: opacity 0.2s ease-in-out;
+	-moz-transition: opacity 0.2s ease-in-out;
+	-o-transition: opacity 0.2s ease-in-out;
+	transition: opacity 0.2s ease-in-out;
+
+ background-color: red;
+    color: white;
+    font-weight: bold;
+    padding: 2px 7px;
+    border-radius: 3px;
+    font-family: calibri;
+    top: -12px;
+    position: relative;
+    opacity:0;
 }
+message.active{ opacity:1;}
