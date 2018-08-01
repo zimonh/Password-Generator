@@ -1,3 +1,6 @@
+/* by: ZIMONH src: https://github.com/zimonh/PasswordGenerator
+License: https://creativecommons.org/licenses/by-nc-sa/4.0/ */
+
 //FUNCTIONS
 //calculate bin group for fill with '◊' so 128 if 100
 const binlength = dec => {
