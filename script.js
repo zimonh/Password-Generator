@@ -1,4 +1,4 @@
-/* by: ZIMONH src: https://github.com/zimonh/PasswordGenerator
+/* by: ZIMONH src: https://github.com/zimonh/Password-Generator
 License: https://creativecommons.org/licenses/by-nc-sa/4.0/ */
 
 //FUNCTIONS
