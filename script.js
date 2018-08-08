@@ -2,55 +2,7 @@
 License: https://creativecommons.org/licenses/by-nc-sa/4.0/ */
 
 //FUNCTIONS
-//calculate bin group for fill with '◊' so 128 if 100
-const binlength = dec => {
-	let pow = 2,
-		r = 1;
-	dec -= 1;
-	while (dec > 1) {
-		dec -= pow;
-		pow = pow * 2;
-		r++;
-	}
-	return 2 ** r;};
-
-//Convert Decimal to binary with fixed length of in this case 32 bit
-const decbin = (dec, length) => {
-	let out = '';
-	while (length--) out += (dec >> length) & 1;
-	return out;};
-
-//get first or last half of options
-const half = (i, bin) => (bin === '1') ? i.slice(i.length / 2, i.length) : i.slice(0, i.length / 2);
-
-//List amounts after sorting the result
-const compress = (s, n = 1) => `${s}_`.split('').map((e, i, r, j) => {
-	if (e !== r[i - 1]) {
-		if (n > 1) {
-			j = '-' + n + '  ' + e;
-			n = 1;
-			return j;
-		}
-		return e;
-	}
-	++n; }).join('').slice(0, -1);
-
 Object.prototype.ony = function(action,func,element,t=this){if(t.length>1) for(element of t)element['on' + action] = func; else t['on' + action] = func; return t; };
-
-
-
-
-
-//max length of random options
-let maxResultLength = 500;
-
-//set length of binary input
-const GenereatedChunks = 200;
-
-//used to check there is proper randomness
-const ValidateMode = false;
-
-
 
 const BuildAll = () => {
 
@@ -60,7 +12,7 @@ const BuildAll = () => {
 	document.querySelector('result').innerHTML = '';
 	let Options = '';
 	//Valid Password options:
-	const validate = [];
+	//const validate = [];
 
 
 
@@ -70,55 +22,18 @@ const BuildAll = () => {
 	if(document.querySelector('.checkbox_09').checked) Options += '0123456789';
 	if(document.querySelector('.checkbox_sy').checked) Options += ' !"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~';
 
-	//fill options to make it a round binary number
-	Options += '◊'.repeat(binlength(Options.length) - Options.length);
-
-	//Generate  32 bit randomness binary:
-	const CryptoArray = new Uint32Array(GenereatedChunks);
-	let CryptoBinString =
-		window
-			.crypto
-			.getRandomValues(CryptoArray)
-			.toString(2)
-			.split(',')
-			.map(e => decbin(e, 32))
-			.join('');
 
 
-	let stringOfRandomOptions = '',
-		stringOfRandomOptionsL = 0;
 
-	while (CryptoBinString.length > 10) {
-		let tempCryptoBinString = CryptoBinString,
-			tempOptions = Options,
-			result = '';
 
-		for (let counter = 0; tempOptions.length > 1; counter++){
-			tempOptions = half(tempOptions, tempCryptoBinString[counter]);
-			if(tempOptions.length === 1){
-				if (tempOptions === '◊'){
-					//slice first half of failing binary
-					CryptoBinString = CryptoBinString.slice(counter / 2);
-					counter = 0;
-					tempCryptoBinString = CryptoBinString;
-					tempOptions = Options;
-					result = '';
-				}else{
-					result = tempOptions;
-					CryptoBinString = CryptoBinString.slice(counter);}}}
-		//only needed if you validate
-		if(ValidateMode) validate.push(result);
+	let stringOfRandomOptions = '';
 
-		stringOfRandomOptionsL++;
-		if(stringOfRandomOptionsL<maxResultLength)	stringOfRandomOptions += `<key>${result}</key>`;
+	randArray(Options.split(''),1500).map(e=>stringOfRandomOptions += `<key>${e}</key>`);
 
-	}
+
 	//insert the random options
 	document.querySelector('keyboard').innerHTML = stringOfRandomOptions;
 
-
-	//make sure options are equally spread
-	if(ValidateMode) console.log(compress(validate.sort().join('')));
 
 
 	let hlStart = 0;
