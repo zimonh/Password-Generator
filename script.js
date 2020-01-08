@@ -91,6 +91,7 @@ const BuildAll = () => {
 
 
 	const Coppy = ()=>{
+		console.log('Coppy Triggered')
 		document.querySelector('#copy').select();
 		document.execCommand('copy');
 		setTimeout(()=>{
