@@ -2,7 +2,7 @@
 Password generator that uses window.crypto and mouse movement.
 
 # Try It Out!
-<a href="https://qt.zimonh.at/key?@">HERE</a>
+<a href="https://zimonh.github.io/Password-Generator/">HERE</a>
 
 # How To Use?
 Simply drag your mouse to create a list of even more random characters and use the copy to clipboard button.
